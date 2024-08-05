@@ -1,0 +1,48 @@
+[
+    {
+      "Type": "Pastery",
+      "Name": "Croissant",
+      "Price": 2.99,
+      "Rate": 4.5,
+      "ImagePath": "/images/cake2.jpg",
+      "total": 5,
+      "detail": "The Croissant is a classic French pastry known for its flaky, buttery layers. It is baked to a golden brown perfection, offering a delicate crunch with every bite. Perfect for breakfast or as a delightful snack with coffee."
+    },
+    {
+      "Type": "Dessert",
+      "Name": "Chocolate Cake",
+      "Price": 5.99,
+      "Rate": 4.8,
+      "ImagePath": "/images/th.jpg",
+      "total": 5,
+      "detail": "Our Chocolate Cake is a rich and decadent treat made with the finest cocoa. Each slice offers a moist texture and a deep chocolate flavor, perfect for satisfying any sweet tooth. It's an ideal choice for celebrations or an indulgent dessert."
+    },
+    {
+      "Type": "Hot",
+      "Name": "Latte",
+      "Price": 3.99,
+      "Rate": 4.7,
+      "ImagePath": "/images/hotcoffe.png",
+      "total": 5,
+      "detail": "A Latte is a popular coffee drink made with espresso and steamed milk. It provides a smooth and creamy texture, balanced with a strong coffee flavor. Ideal for a morning boost or a comforting afternoon pick-me-up."
+    },
+    {
+      "Type": "Drink",
+      "Name": "Iced Coffee",
+      "Price": 4.50,
+      "Rate": 4.3,
+      "ImagePath": "/images/coffecold.webp",
+      "total": 5,
+      "detail": "Our Iced Coffee is a refreshing beverage brewed to perfection and served chilled. It combines the bold taste of coffee with a cool, invigorating finish. Perfect for hot days or as a refreshing alternative to hot coffee."
+    },
+    {
+      "Type": "Dessert",
+      "Name": "Cheesecake",
+      "Price": 4000.99,
+      "Rate": 4.9,
+      "ImagePath": "/images/chees.jpg",
+      "total": 5,
+      "detail": "Our Cheesecake is a creamy, rich dessert with a smooth texture and a graham cracker crust. Each bite offers a perfect balance of sweetness and tanginess. Ideal for any occasion, it’s a favorite among dessert lovers."
+    }
+  ]
+  
