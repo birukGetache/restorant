@@ -113,7 +113,7 @@ const ProductCard = ({ item, dispatch, navigate }) => {
           <Dis>
             <Title>{item.Type}</Title>
             <Name>{item.Name}</Name>
-            <Price>${item.Price.toFixed(2)}</Price>
+            <Price>Birr{item.Price.toFixed(2)}</Price>
           </Dis>
           <Values>
             <p style={{ display: "flex", height: "fit-content", margin: "0px", justifyContent: "end" }}>

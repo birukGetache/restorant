@@ -2,7 +2,7 @@
     {
       "Type": "Pastery",
       "Name": "Croissant",
-      "Price": 2.99,
+      "Price":200,
       "Rate": 4.5,
       "ImagePath": "/images/cake2.jpg",
       "total": 5,
@@ -11,7 +11,7 @@
     {
       "Type": "Dessert",
       "Name": "Chocolate Cake",
-      "Price": 5.99,
+      "Price": 300,
       "Rate": 4.8,
       "ImagePath": "/images/th.jpg",
       "total": 5,
@@ -20,7 +20,7 @@
     {
       "Type": "Hot",
       "Name": "Latte",
-      "Price": 3.99,
+      "Price": 150,
       "Rate": 4.7,
       "ImagePath": "/images/hotcoffe.png",
       "total": 5,
@@ -29,7 +29,7 @@
     {
       "Type": "Drink",
       "Name": "Iced Coffee",
-      "Price": 4.50,
+      "Price": 450,
       "Rate": 4.3,
       "ImagePath": "/images/coffecold.webp",
       "total": 5,
@@ -38,7 +38,7 @@
     {
       "Type": "Dessert",
       "Name": "Cheesecake",
-      "Price": 4000.99,
+      "Price": 419,
       "Rate": 4.9,
       "ImagePath": "/images/chees.jpg",
       "total": 5,

@@ -27,7 +27,7 @@ const Name = styled.div`
 const P = styled.p`
   color: white;
   font-size: 80px;
- font-family: "Dosis", sans-serif;
+ font-family: Posterama Pro 1913 SemiBold;
   display: block;
   margin: 10px;
   font-weight: bold;
@@ -42,7 +42,7 @@ const CakePic = styled.div`
 const H = styled.h6`
   margin: 0;
   margin-top:-20px;
- font-family: "East Sea Dokdo", sans-serif;
+ font-family:Arial Arabic Bold;
   font-size: 50px;
   font-weight: bold;
   color: white;

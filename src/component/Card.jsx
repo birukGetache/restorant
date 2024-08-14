@@ -50,6 +50,7 @@ const Cards = ({ searchQuery }) => {
               item={item}
               dispatch={dispatch}
               navigate={navigate}
+             
             />
           ))
         }
