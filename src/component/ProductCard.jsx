@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { FiHeart } from 'react-icons/fi';
 import { setItems } from '../itemsReducer';
 import Modal from 'react-modal';
+import axios from 'axios';
 import localForage from 'localforage';
 localForage.config({
   driver: localForage.LOCALSTORAGE, 
@@ -10,11 +11,12 @@ localForage.config({
   storeName: 'data',
   description: 'Some description'
 });
-
+import data from '../data.json'
 
 const Card = styled.div`
   border: none;
   border-radius: 8px;
+  height:200px;
   margin: 10px;
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0.5, 0.5, 0.5, 0.5);
@@ -69,9 +71,10 @@ const Heart = styled(FiHeart)`
 `;
 
 const Dis = styled.div`
-  display: flex;
+height:100%;
+ display:flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: space-between;
 `;
 
 const Values = styled.div`
@@ -85,21 +88,37 @@ const Body = styled.div`
 
 const ProductCard = ({ item, dispatch, navigate }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
+  const [rate, setRate] = useState(0);
+  const [total, setTotal] = useState(0);
   const openModal = (e) => {
     e.stopPropagation();
     setModalIsOpen(true);
   };
 
   const closeModal = () => setModalIsOpen(false);
-  const set =(rate, total, name,value) =>{
+  const set = async(rate, total, name,value) =>{
+    console.log(rate)
+    console.log(total)
     //update total
+    total= total+1;
       const temp = rate*total;
      const final= temp + value;
      rate = final/total;
+     console.log(rate , total);
+     try {
+      console.log(rate, total);
+     const t= await axios.post('http://localhost:5176/api/update-data', { rate: rate, total: total });
+      console.log(t);
+    } catch (error) {
+      console.error('Failed to update data:', error);
+    }
      //update rate
     closeModal();
   }
+  const truncateName = (name) => {
+    return name.length > 9 ? `${name.substring(0, 9)}...` : name;
+  };
+  
   return (
     <div>
       <Card
@@ -112,7 +131,7 @@ const ProductCard = ({ item, dispatch, navigate }) => {
         <Body>
           <Dis>
             <Title>{item.Type}</Title>
-            <Name>{item.Name}</Name>
+            <Name>{truncateName(item.Name)}</Name>
             <Price>Birr{item.Price.toFixed(2)}</Price>
           </Dis>
           <Values>
@@ -170,7 +189,7 @@ const ProductCard = ({ item, dispatch, navigate }) => {
           position:"relative"
         }}
       >
-         <svg onClick={()=>set(item.Rate,item.Total,item.Name,1)} width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#3c2f2f">
+         <svg onClick={()=>set(item.Rate,item.total,item.Name,1)} width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#3c2f2f">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                 <g id="SVGRepo_iconCarrier">
@@ -183,7 +202,7 @@ const ProductCard = ({ item, dispatch, navigate }) => {
                   ></path>
                 </g>
               </svg>
-              <svg onClick={(item.Rate,item.Total,item.Name,2)} width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#3c2f2f">
+              <svg onClick={()=>set(item.Rate,item.total,item.Name,2)} width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#3c2f2f">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                 <g id="SVGRepo_iconCarrier">
@@ -196,7 +215,7 @@ const ProductCard = ({ item, dispatch, navigate }) => {
                   ></path>
                 </g>
               </svg>
-              <svg onClick={(item.Rate,item.Total,item.Name,3)} width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#3c2f2f">
+              <svg onClick={()=>set(item.Rate,item.total,item.Name,3)} width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#3c2f2f">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                 <g id="SVGRepo_iconCarrier">
@@ -209,7 +228,7 @@ const ProductCard = ({ item, dispatch, navigate }) => {
                   ></path>
                 </g>
               </svg>
-              <svg onClick={(item.Rate,item.Total,item.Name,4)} width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#3c2f2f">
+              <svg onClick={()=>set(item.Rate,item.total,item.Name,4)} width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#3c2f2f">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                 <g id="SVGRepo_iconCarrier">
@@ -222,7 +241,7 @@ const ProductCard = ({ item, dispatch, navigate }) => {
                   ></path>
                 </g>
               </svg>
-              <svg onClick={(item.Rate,item.Total,item.Name,5)} width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#3c2f2f">
+              <svg onClick={()=>set(item.Rate,item.total,item.Name,5)} width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#3c2f2f">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                 <g id="SVGRepo_iconCarrier">
